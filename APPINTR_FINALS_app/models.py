@@ -23,3 +23,9 @@ class ParkingSession(models.Model):
 
     def __str__(self):
         return f"{self.plate_number} at {self.spot.spot_number if self.spot else 'No Spot'}"
+
+class SystemSetting(models.Model):
+    hourly_rate = models.DecimalField(max_digits=6, decimal_places=2, default=25.00)
+
+    def __str__(self):
+        return f"System Settings (Rate: {self.hourly_rate})"
